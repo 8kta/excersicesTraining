@@ -5,3 +5,5 @@ object Exercise2 extends App {
   val str: String = ReverseWord.getReversedWord(word)
   println(str)
 }
+
+
