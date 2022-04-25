@@ -2,7 +2,7 @@ package Exercise1
 
 object firstExercise extends App {
 
-
+  // Example of matching pattern
   def showIfSent(sentAction: SendAction, state: Boolean): String = {
     sentAction match {
       case e: Email => e.isSent(state)
