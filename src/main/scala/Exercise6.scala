@@ -1,3 +1,0 @@
-class Exercise6 {
-
-}
