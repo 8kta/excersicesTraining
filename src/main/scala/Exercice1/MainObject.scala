@@ -1,6 +1,5 @@
 package Exercice1
 
-object MainObject {
-    def main(): Unit =
-      println("Hello")
+object MainObject extends App {
+  println("Hello")
 }
