@@ -6,15 +6,15 @@ package HW2Exercise1
 
 
 class RequestedFunctions {
-  def sumAll(lst: List[Any]): Int =
+
+  def sumAll(lst: List[Int]): Int =
     var sum = 0
     lst.foreach(sum+=_)
     sum
 
-  def prodAll(lst: List[Any]): Int =
+  def prodAll(lst: List[Int]): Int =
     var prod = 1
     lst.foreach(prod*=_)
     prod
-
 
 }
