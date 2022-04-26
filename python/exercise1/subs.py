@@ -1,7 +1,13 @@
-txt = 'mi casa, su casa'
+import collections
 
-x = txt.rfind('casa')
-y = txt.lstrip('casa')
+text = 'fernanda'
 
+col = collections.Counter(text)
 
-print(x, y)
+print(col)
+
+tam = len(text)
+
+substring = ''
+for i in range(0, tam - 1):
+    substring1 = text[i::]

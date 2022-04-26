@@ -1,5 +1,5 @@
 import math
 
-number = 7
+number = 5
 
 print(math.factorial(number))

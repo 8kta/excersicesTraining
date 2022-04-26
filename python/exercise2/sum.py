@@ -1,8 +1,9 @@
 # Find from a lis, two numbers that sums a given number
 def find_pairs(lst, sum):
-    return [[y,x] for x in lst for y in lst if x+y==sum]
+    return [[y, x] for x in lst for y in lst if (x + y == sum) & (x <= y)]
 
-lst = [2,3,4,5,6]
+
+lst = [2, 3, 4, 5, 6]
 sum = 10
 
 lista = find_pairs(lst, sum)
