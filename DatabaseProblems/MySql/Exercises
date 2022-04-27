@@ -1,0 +1,19 @@
+1. write python funtion for reverse a string
+done
+
+2. write a function of fibonanci series in python for given number
+done
+
+3. write a python code to connect mysql database and create database,create table and insert data into table then select data from table
+
+
+4. write a python code to connect mongodb database and create database,create collection and insert documents into table then select data from table
+
+
+5. write a function to find longest non repeated substring length  
+=>abcadb=> longest string is abc -> length is 3
+6. write a function to take array input and find the pair whose sum is equal to input number.
+[2,3,1,4,7,2} input=5   {2,3}{1,4}
+7. write a function to find anagram in list in python
+{abc,bac,dab}  => {abc,bac}
+8. write a function to validate ip address
