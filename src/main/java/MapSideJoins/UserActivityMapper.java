@@ -41,8 +41,8 @@ public class UserActivityMapper extends Mapper<LongWritable, Text, IntWritable, 
     }
 
     private void loadUserInMemory(Mapper<LongWritable, Text, IntWritable, Text>.Context context) {
-        // user.log is in distributed cache
-        try (BufferedReader br = new BufferedReader(new FileReader("user.log"))) {
+        // currency.log is in distributed cache
+        try (BufferedReader br = new BufferedReader(new FileReader("currency.log"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String columns[] = line.split("\t");

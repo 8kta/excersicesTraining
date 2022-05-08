@@ -9,8 +9,8 @@ import java.io.IOException;
 public class WordReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
     public void reduce(Text key, Iterable<IntWritable> values, Context con) throws IOException, InterruptedException {
         /*
-         * Hello 1,1,1,1,1
-         * Hai 1,1,1
+         Hello 1,1,1,1,1
+         Hai 1,1,1
          */
         int total = 0; // 0+1 = 1 + 1 = 2 , 5
         while (values.iterator().hasNext()) {

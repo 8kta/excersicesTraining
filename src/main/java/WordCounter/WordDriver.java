@@ -16,8 +16,14 @@ public class WordDriver {
 
         job.setMapperClass(WordMapper.class);
         job.setReducerClass(WordReducer.class);
-        //job.setPartitionerClass(WordPartioner.class);
-        //job.setNumReduceTasks(new Integer(2));
+
+        //We use this class to make a combiner
+        job.setCombinerClass(WordReducer.class);
+
+        //To use partitioner we set next job
+        job.setPartitionerClass(WordPartitioner.class);
+        //Specify how many user file you want to create
+        job.setNumReduceTasks(2);
         //job.setMapOutputKeyClass(Text.class);
         //job.setMapOutputValueClass(IntWritable.class);
 

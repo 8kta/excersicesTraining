@@ -49,7 +49,7 @@ public class UserActivityDriver extends Configured implements Tool {
         //job.setReducerClass(UserActivityReducer.class);
         job.setMapOutputKeyClass(IntWritable.class);
         job.setMapOutputValueClass(UserActivityVO.class);
-        job.addCacheFile(new URI("/home/alonso/IdeaProjects/test/src/main/resources/user.log"));
+        job.addCacheFile(new URI("/home/alonso/IdeaProjects/test/src/main/resources/currency.log"));
         //job.setOutputKeyClass(UserActivityVO.class);
         job.setOutputValueClass(NullWritable.class);
         Path outputPath = new Path(args[1]);
