@@ -17,10 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CurrencyMap extends Mapper<LongWritable, Text, LongWritable, Text> {
-    Map<Integer, String> currency = null;
+    Map<Integer, String> currency = new HashMap<>();
 
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        String line[] = value.toString().split(",");
+        String[] line = value.toString().split(",");
         String transLine = line[1] + "," + line[2] + "," + line[3] + "," + currency.get(Integer.parseInt(line[4]));
         context.write(new LongWritable(Integer.parseInt(line[0])), new Text(transLine));
     }
@@ -29,7 +29,7 @@ public class CurrencyMap extends Mapper<LongWritable, Text, LongWritable, Text> 
     public void setup(Context context) throws IOException,
             InterruptedException {
         //stopWords = new Map<>();
-        Map<Integer, String> currency = new HashMap<>();
+        //Map<Integer, String> currency = new HashMap<>();
 
         URI[] cacheFiles = context.getCacheFiles();
 
