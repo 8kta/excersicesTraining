@@ -2,7 +2,6 @@ package MapSideJoinCurrency;
 
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -11,8 +10,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,17 +23,14 @@ public class CurrencyMap extends Mapper<LongWritable, Text, LongWritable, Text> 
     }
 
 
-    public void setup(Context context) throws IOException,
-            InterruptedException {
-        //stopWords = new Map<>();
-        //Map<Integer, String> currency = new HashMap<>();
+    public void setup(Context context) throws IOException {
 
         URI[] cacheFiles = context.getCacheFiles();
 
         if (cacheFiles != null && cacheFiles.length > 0) {
             try {
 
-                String line = "";
+                String line;
                 // Create a FileSystem object and pass the
                 // configuration object in it. The FileSystem
                 // is an abstract base class for a fairly generic
