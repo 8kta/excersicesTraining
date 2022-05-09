@@ -39,8 +39,8 @@ public class CurrencyDriver {
 
             // the complete URI(Uniform Resource
             // Identifier) file path in Hdfs
-            //job.addCacheFile(new URI("hdfs://localhost:9000/cached_Geeks/stopWords.txt"));
-            job.addCacheFile(new URI("/home/alonso/IdeaProjects/excersicesTraining/src/main/resources/currency.log"));
+            job.addCacheFile(new URI("hdfs://127.0.0.1:9000/user/cache/currency.log"));
+            //job.addCacheFile(new URI("/home/alonso/IdeaProjects/excersicesTraining/src/main/resources/currency.log"));
         } catch (Exception e) {
             System.out.println("File Not Added");
             System.exit(1);
