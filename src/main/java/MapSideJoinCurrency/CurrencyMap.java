@@ -12,21 +12,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CurrencyMap extends Mapper<LongWritable, Text, LongWritable, Text> {
-    ArrayList<String> stopWords = null;
+    Map<Integer, String> currency = null;
 
-    @Override
-    protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, LongWritable, Text>.Context context)
-            throws IOException, InterruptedException {
-
-        super.map(key, value, context);
+    public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        String line[] = value.toString().split(",");
+        String transLine = line[1] + "," + line[2] + "," + line[3] + "," + currency.get(Integer.parseInt(line[4]));
+        context.write(new LongWritable(Integer.parseInt(line[0])), new Text(transLine));
     }
 
 
     public void setup(Context context) throws IOException,
             InterruptedException {
-        stopWords = new ArrayList<String>();
+        //stopWords = new Map<>();
+        Map<Integer, String> currency = new HashMap<>();
 
         URI[] cacheFiles = context.getCacheFiles();
 
@@ -49,17 +52,13 @@ public class CurrencyMap extends Mapper<LongWritable, Text, LongWritable, Text> 
                 // in BufferedReader to make it more efficient
                 BufferedReader reader = new BufferedReader(new InputStreamReader(fs.open(getFilePath)));
 
-                while ((line = reader.readLine()) != null) {
-                    String[] words = line.split(" ");
 
-                    for (int i = 0; i < words.length; i++) {
-                        // add the words to ArrayList
-                        stopWords.add(words[i]);
-                    }
+                while ((line = reader.readLine()) != null) {
+                    String[] words = line.split(",");
+
+                    currency.put(Integer.parseInt(words[0]), words[1]);
                 }
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.println("Unable to read the File");
                 System.exit(1);
             }
