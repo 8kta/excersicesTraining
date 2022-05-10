@@ -7,15 +7,15 @@ import org.apache.hadoop.io.Text;
 
 public class Upper extends UDFSubstr {
 
-    public Text evaluate(Text word, IntWritable index){
+    public Text evaluate(Text word, IntWritable index) {
 
-        String res="";
+        String res;
         String wordStr = word.toString();
-        if(word!=null) {
+        if (word.getLength() != 0) {
             String st = String.valueOf(wordStr.charAt(0)).toUpperCase();
             res = st.concat(wordStr.substring(1));
             //res = word.toUpperCase();
-        }else{
+        } else {
             return new Text(wordStr);
         }
         return new Text(res);
