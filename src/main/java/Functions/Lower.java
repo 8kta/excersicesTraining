@@ -11,6 +11,7 @@ import org.apache.hadoop.io.Text;
 
 public class Lower extends GenericUDF {
     private final Text output = new Text();
+
     @Override
     public ObjectInspector initialize(ObjectInspector[] objectInspectors) throws UDFArgumentException {
         //If you do not check arguments, it is going to return an error when define in hive
@@ -19,7 +20,8 @@ public class Lower extends GenericUDF {
         return PrimitiveObjectInspectorFactory.writableStringObjectInspector;
     }
 
-    protected String getStringValue(DeferredObject[] arguments, int i, ObjectInspectorConverters.Converter converter) throws HiveException {
+    protected String getStringValue(DeferredObject[] arguments, int i,
+                                    ObjectInspectorConverters.Converter converter) throws HiveException {
         Object obj;
         return (obj = arguments[i].get()) == null ? null : converter.convert(obj).toString();
     }
@@ -27,7 +29,7 @@ public class Lower extends GenericUDF {
     @Override
     public Object evaluate(DeferredObject[] deferredObjects) throws HiveException {
         String inputString = this.getStringValue(deferredObjects, 0, StringConverter::new);
-        if (inputString == ""){
+        if (inputString == "") {
             String res = "";
             output.set(res);
         } else {
